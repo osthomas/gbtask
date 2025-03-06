@@ -1,0 +1,26 @@
+[project]
+name = "bptasks"
+version = "0.0.1"
+description = "Command line interfaces to common BioPython tasks"
+readme = "README.md"
+authors = [
+    {name = "Oliver Thomas", email = "thomaso@ie-freiburg.mpg.de"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "biopython >= 1.85"
+]
+
+
+[project.urls]
+Repository = "https://www.github.com/osthomas/bptasks"
+
+
+[build-system]
+requires = [
+    "setuptools >= 48"
+]
+build-backend = "setuptools.build_meta"
