@@ -1,5 +1,7 @@
 # gbtask: CLI tool for manipulation of Genbank files
 
+![Badge: pytest](https://github.com/osthomas/gbtask/actions/workflows/pytest.yaml/badge.svg)
+
 - [gbtask: CLI tool for manipulation of Genbank
   files](#gbtask-cli-tool-for-manipulation-of-genbank-files)
   - [Installation](#installation)

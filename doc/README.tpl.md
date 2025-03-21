@@ -1,5 +1,7 @@
 # gbtask: CLI tool for manipulation of Genbank files
 
+![Badge: pytest](https://github.com/osthomas/gbtask/actions/workflows/pytest.yaml/badge.svg)
+
 $if(toc)$
 $table-of-contents$
 
