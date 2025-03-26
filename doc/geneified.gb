@@ -1,0 +1,57 @@
+LOCUS       example                  219 bp    DNA     linear   UNA 01-JAN-2000
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      natural DNA sequence
+  ORGANISM  unspecified
+            .
+FEATURES             Location/Qualifiers
+     exon            101..110
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:exon.02"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     exon            191..200
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:exon.03"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     exon            11..20
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:exon.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     CDS             12..19
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:CDS.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     mRNA            join(11..20,101..110,191..200)
+                     /ID="gene.01:mRNA.01"
+                     /Parent="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     5'UTR           11
+                     /ID="gene.01:5'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     3'UTR           join(20,101..110,191..200)
+                     /ID="gene.01:3'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     gene            11..200
+                     /ID="gene.01"
+                     /gene_id="gene.01"
+ORIGIN
+        1 nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn
+       61 nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn atgcatgcat atgcatgcat
+      121 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      181 atgcatgcat atgcatgcat aaaagggggc ccccttttt
+//

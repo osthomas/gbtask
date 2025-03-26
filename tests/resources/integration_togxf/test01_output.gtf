@@ -1,0 +1,9 @@
+##format: gtf
+TESTCASE	gbtask_togtf	gene	5	99	.	+	.	gene_id "gene.01"; gene "geneA"; label "geneA"; ID "gene.01"
+TESTCASE	gbtask_togtf	exon	25	35	.	+	.	gene_id "gene.01"; transcript_id "gene.01:mRNA.01"; gene "geneA"; label "exon1"; ID "gene.01:exon.01"; Parent "gene.01:mRNA.01"
+TESTCASE	gbtask_togtf	CDS	29	35	.	+	0	gene_id "gene.01"; transcript_id "gene.01:mRNA.01"; codon_start "1"; gene "geneA"; label "geneA"; ID "gene.01:CDS.01"; Parent "gene.01:mRNA.01"
+TESTCASE	gbtask_togtf	CDS	75	80	.	+	2	gene_id "gene.01"; transcript_id "gene.01:mRNA.01"; codon_start "1"; gene "geneA"; label "geneA"; ID "gene.01:CDS.01"; Parent "gene.01:mRNA.01"
+TESTCASE	gbtask_togtf	exon	75	85	.	+	.	gene_id "gene.01"; transcript_id "gene.01:mRNA.01"; gene "geneA"; label "exon2"; ID "gene.01:exon.02"; Parent "gene.01:mRNA.01"
+TESTCASE	gbtask_togtf	mRNA	25	85	.	+	.	gene_id "gene.01"; transcript_id "gene.01:mRNA.01"; ID "gene.01:mRNA.01"; Parent "gene.01"
+TESTCASE	gbtask_togtf	UTR	25	28	.	+	.	gene_id "gene.01"; transcript_id "gene.01:mRNA.01"; ID "gene.01:5'UTR.01"; Parent "gene.01:mRNA.01"
+TESTCASE	gbtask_togtf	UTR	81	85	.	+	.	gene_id "gene.01"; transcript_id "gene.01:mRNA.01"; ID "gene.01:3'UTR.01"; Parent "gene.01:mRNA.01"

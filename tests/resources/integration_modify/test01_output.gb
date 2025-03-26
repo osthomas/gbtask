@@ -1,0 +1,20 @@
+LOCUS       TESTCASE                 113 bp    DNA     linear   UNA 01-JAN-2000
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      test
+  ORGANISM  mus musculus
+            .
+FEATURES             Location/Qualifiers
+     misc_feature    11..35
+                     /label="misc1"
+                     /locus_tag="locustagqualifierforall"
+     exon            84..110
+                     /label="exon2"
+                     /gene="genequalifierforexons"
+                     /locus_tag="locustagqualifierforall"
+ORIGIN
+        1 nnnnnnnnnn atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+       61 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat xyz
+//

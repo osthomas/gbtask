@@ -1,0 +1,26 @@
+LOCUS       TESTCASE                 100 bp    DNA     linear   UNA 01-JAN-2000
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      natural DNA sequence
+  ORGANISM  unspecified
+            .
+FEATURES             Location/Qualifiers
+     gene            5..99
+                     /gene="geneA"
+                     /label="geneA"
+     exon            25..35
+                     /gene="geneA"
+                     /label="exon1"
+     CDS             join(29..35,75..80)
+                     /codon_start=1
+                     /gene="geneA"
+                     /label="geneA"
+     exon            75..85
+                     /gene="geneA"
+                     /label="exon2"
+ORIGIN
+        1 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+       61 atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+//

@@ -1,22 +1,35 @@
 [project]
-name = "bptasks"
-version = "0.0.1"
-description = "Command line interfaces to common BioPython tasks"
+name = "gbtask"
+version = "0.1.0"
+description = "CLI to manipulate Genbank files, hierarchize their features, and export to GTF or GFF."
 readme = "README.md"
 authors = [
-    {name = "Oliver Thomas", email = "thomaso@ie-freiburg.mpg.de"}
+    {name = "Oliver Thomas", email = "ost.dev@posteo.net"}
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "biopython >= 1.85"
+    "biopython > 1.81",
+    "networkx > 2.0.0"
 ]
 
+[project.optional-dependencies]
+dev = ["pytest > 7"]
+
+doc = [
+    "matplotlib", "pydot", "pygraphviz"  # for graph drawing
+]
 
 [project.urls]
-Repository = "https://www.github.com/osthomas/bptasks"
+Repository = "https://www.github.com/osthomas/gbtask"
+
+[project.scripts]
+gbtask = "gbtask.__main__:main"
 
 
 [build-system]

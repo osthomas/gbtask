@@ -1,0 +1,95 @@
+LOCUS       TESTCASE                1000 bp    DNA     linear   UNA 01-JAN-2000
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      natural DNA sequence
+  ORGANISM  unspecified
+            .
+FEATURES             Location/Qualifiers
+     gene            1..500
+                     /gene="GeneA"
+                     /label="GeneA"
+                     /ID="gene.01"
+                     /gene_id="gene.01"
+     exon            1..304
+                     /gene="GeneA"
+                     /label="GeneA mRNA exon1"
+                     /ID="gene.01:exon.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     exon            410..500
+                     /gene="GeneA"
+                     /label="GeneA mRNA exon2"
+                     /ID="gene.01:exon.02"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     misc_feature    1..100
+                     /label="misc_unassociated_to_gene1"
+                     /ID="misc_feature.01"
+     CDS             155..304
+                     /codon_start=1
+                     /gene="GeneA"
+                     /label="GeneA CDS"
+                     /translation="MHMHAYACICMHMHAYACICMHMHAYACICMHMHAYACICMHMHA
+                     YACIC"
+                     /ID="gene.01:CDS.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     misc_feature    685..815
+                     /label="misc_unassociated_to_gene2"
+                     /ID="misc_feature.02"
+     gene            751..1000
+                     /gene="GeneA"
+                     /label="GeneA"
+                     /ID="gene.02"
+                     /gene_id="gene.02"
+     mRNA            751..1000
+                     /gene="GeneA"
+                     /label="GeneA mRNA"
+                     /ID="gene.02:mRNA.01"
+                     /Parent="gene.02"
+                     /gene_id="gene.02"
+                     /transcript_id="gene.02:mRNA.01"
+     mRNA            join(1..304,410..500)
+                     /ID="gene.01:mRNA.01"
+                     /Parent="gene.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     exon            751..1000
+                     /ID="gene.02:exon.01"
+                     /Parent="gene.02:mRNA.01"
+                     /gene_id="gene.02"
+                     /transcript_id="gene.02:mRNA.01"
+     5'UTR           1..154
+                     /ID="gene.01:5'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     3'UTR           410..500
+                     /ID="gene.01:3'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+ORIGIN
+        1 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+       61 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      121 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      181 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      241 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      301 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      361 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      421 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      481 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      541 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      601 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      661 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      721 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      781 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      841 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      901 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      961 atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+//

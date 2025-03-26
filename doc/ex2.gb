@@ -1,0 +1,23 @@
+LOCUS       example                  219 bp    DNA     linear   UNA 01-JAN-2000
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      natural DNA sequence
+  ORGANISM  unspecified
+            .
+FEATURES             Location/Qualifiers
+     exon            101..110
+                     /mygroupingqualifier="mygene"
+     exon            191..200
+                     /mygroupingqualifier="mygene"
+     exon            11..20
+                     /mygroupingqualifier="mygene"
+     CDS             12..19
+                     /mygroupingqualifier="mygene"
+ORIGIN
+        1 nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn
+       61 nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn nnnnnnnnnn atgcatgcat atgcatgcat
+      121 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+      181 atgcatgcat atgcatgcat aaaagggggc ccccttttt
+//

@@ -1,0 +1,17 @@
+LOCUS       TESTCASE                 100 bp    DNA     linear   UNA 01-JAN-2000
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      natural DNA sequence
+  ORGANISM  unspecified
+            .
+FEATURES             Location/Qualifiers
+     misc_feature    1..25
+                     /label="misc1"
+     exon            74..100
+                     /label="exon2"
+ORIGIN
+        1 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+       61 atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+//

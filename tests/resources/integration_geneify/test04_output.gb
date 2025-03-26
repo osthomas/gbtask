@@ -1,0 +1,55 @@
+LOCUS       TESTCASE                 100 bp    DNA     linear   UNA 01-JAN-2000
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      natural DNA sequence
+  ORGANISM  unspecified
+            .
+FEATURES             Location/Qualifiers
+     gene            5..99
+                     /gene="geneA"
+                     /label="geneA"
+                     /ID="gene.01"
+                     /gene_id="gene.01"
+     exon            25..35
+                     /gene="geneA"
+                     /label="exon1"
+                     /ID="gene.01:exon.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     CDS             join(29..35,75..80)
+                     /codon_start=1
+                     /gene="geneA"
+                     /label="geneA"
+                     /ID="gene.01:CDS.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     exon            75..85
+                     /gene="geneA"
+                     /label="exon2"
+                     /ID="gene.01:exon.02"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     mRNA            join(25..35,75..85)
+                     /ID="gene.01:mRNA.01"
+                     /Parent="gene.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     5'UTR           25..28
+                     /ID="gene.01:5'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+     3'UTR           81..85
+                     /ID="gene.01:3'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+ORIGIN
+        1 atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+       61 atgcatgcat atgcatgcat atgcatgcat atgcatgcat
+//
