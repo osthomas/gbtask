@@ -230,7 +230,7 @@ and
 
 The feature hierarchy for supported features:
 
-![Default Type Tree](typetree.png)
+![Default Type Tree](doc/typetree.png)
 
 Feature types that are not part of the hierarchy are assigned to the root feature type (gene).
 Missing intermediates are skipped.

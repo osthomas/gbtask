@@ -22,4 +22,3 @@ README.md: README.tpl.md $(SH_OUT) typetree.png Makefile
 clean:
 	rm *.sh.out
 	rm README.md
-	rm typetree.png
