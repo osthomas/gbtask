@@ -10,6 +10,7 @@
       interest](#build-a-reference-for-a-specific-gene-of-interest)
   - [geneify](#geneify)
   - [modify](#modify)
+  - [splice](#splice)
   - [togtf](#togtf)
   - [togff](#togff)
 
@@ -20,6 +21,7 @@ Supported commands are:
 
 * **geneify**: group features by qualifiers and overlap and build a feature hierarchy for export to GFF/GTF
 * **modify**: padding, add/remove features, set qualifiers and annotation
+* **splice**: carve out exon sequences and their overlapping features
 * **togff/togtf**: leverage `geneify`'s hierarchization and export features to G(T/F)F
 
 Its intended use case is to handle Genbank files storing reference information for specific genes of interest or plasmid annotations.
@@ -218,6 +220,92 @@ example	gbtask_togff	three_prime_utr	191	200	.	+	.	ID=gene.01:3'UTR.01;Parent=ge
 example	gbtask_togff	gene	11	200	.	+	.	ID=gene.01;gene_id=gene.01
 ```
 
+Splice:
+
+```
+gbtask splice -i geneified.gb
+
+LOCUS       example                   30 bp    DNA              UNK 01-JAN-1980
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     exon            1..10
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:exon.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     CDS             2..9
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:CDS.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     mRNA            1..10
+                     /ID="gene.01:mRNA.01"
+                     /Parent="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     5'UTR           1
+                     /ID="gene.01:5'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     3'UTR           10
+                     /ID="gene.01:3'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     gene            1..10
+                     /ID="gene.01"
+                     /gene_id="gene.01"
+     exon            11..20
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:exon.02"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     mRNA            11..20
+                     /ID="gene.01:mRNA.01"
+                     /Parent="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     3'UTR           11..20
+                     /ID="gene.01:3'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     gene            11..20
+                     /ID="gene.01"
+                     /gene_id="gene.01"
+     exon            21..30
+                     /mygroupingqualifier="mygene"
+                     /ID="gene.01:exon.03"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     mRNA            21..30
+                     /ID="gene.01:mRNA.01"
+                     /Parent="gene.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     3'UTR           21..30
+                     /ID="gene.01:3'UTR.01"
+                     /Parent="gene.01:mRNA.01"
+                     /transcript_id="gene.01:mRNA.01"
+                     /gene_id="gene.01"
+     gene            21..30
+                     /ID="gene.01"
+                     /gene_id="gene.01"
+ORIGIN
+        1 nnnnnnnnnn atgcatgcat atgcatgcat
+//
+```
 
 ## geneify
 
@@ -323,6 +411,27 @@ Padding:
                         sequence. (default: None)
 ```
 
+
+## splice
+
+Note that features which are split by the splicing operation (eg. `gene`) are
+duplicated and occur once for every exon by which they are covered.
+
+```
+gbtask splice -h
+
+usage: gbtask splice [-h] [-i INFILE] [-o OUTFILE] [-e EXON]
+
+options:
+  -h, --help            show this help message and exit
+  -i, --infile INFILE   Input file (default: <_io.TextIOWrapper name='<stdin>'
+                        mode='r' encoding='utf-8'>)
+  -o, --outfile OUTFILE
+                        Output file (default: <_io.TextIOWrapper
+                        name='<stdout>' mode='w' encoding='utf-8'>)
+  -e, --exon EXON       Name of feature type to consider as exon (default:
+                        exon)
+```
 
 ## togtf
 

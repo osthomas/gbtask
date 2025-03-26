@@ -14,6 +14,7 @@ Supported commands are:
 
 * **geneify**: group features by qualifiers and overlap and build a feature hierarchy for export to GFF/GTF
 * **modify**: padding, add/remove features, set qualifiers and annotation
+* **splice**: carve out exon sequences and their overlapping features
 * **togff/togtf**: leverage `geneify`'s hierarchization and export features to G(T/F)F
 
 Its intended use case is to handle Genbank files storing reference information for specific genes of interest or plasmid annotations.
@@ -93,6 +94,15 @@ ${example_togff.sh.out()}
 
 ```
 
+Splice:
+
+```
+${example_splice.sh()}
+
+
+${example_splice.sh.out()}
+
+```
 
 ## geneify
 
@@ -131,6 +141,19 @@ ${modify_help.sh.out()}
 
 ```
 
+
+## splice
+
+Note that features which are split by the splicing operation (eg. `gene`) are
+duplicated and occur once for every exon by which they are covered.
+
+```
+${splice_help.sh()}
+
+
+${splice_help.sh.out()}
+
+```
 
 ## togtf
 

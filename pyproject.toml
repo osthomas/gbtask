@@ -1,6 +1,6 @@
 [project]
 name = "gbtask"
-version = "0.1.0"
+version = "0.2.0"
 description = "CLI to manipulate Genbank files, hierarchize their features, and export to GTF or GFF."
 readme = "README.md"
 authors = [

@@ -1,0 +1,36 @@
+LOCUS       TESTCASE                  51 bp    DNA              UNK 01-JAN-1980
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     exon            1..24
+                     /label="exon1"
+     misc_feature    1..24
+                     /label="over_both_full"
+     misc_feature    1..24
+                     /label="over_exon1_full"
+     CDS             10..24
+                     /codon_start=1
+                     /label="compound_CDS"
+                     /translation="YACICICMH"
+     misc_feature    15..24
+                     /label="over_both_partial"
+     exon            25..51
+                     /label="exon2"
+     misc_feature    25..51
+                     /label="over_both_full"
+     CDS             25..36
+                     /codon_start=1
+                     /label="compound_CDS"
+                     /translation="YACICICMH"
+     misc_feature    25..37
+                     /label="over_both_partial"
+     misc_feature    31..46
+                     /label="over_exon2_partial"
+ORIGIN
+        1 atgcatgcat atgcatgcat atgcatatgc atgcatatgc atgcatatgc a
+//

@@ -2,6 +2,7 @@ import argparse
 
 from gbtask.geneify import cli as geneify
 from gbtask.modify import cli as modify
+from gbtask.splice import cli as splice
 from gbtask.togxf import cli as togxf
 
 
@@ -20,6 +21,7 @@ def parse_args():
 
     geneify.get_subparser(subparsers, formatter_class=formatter_class)
     modify.get_subparser(subparsers, formatter_class=formatter_class)
+    splice.get_subparser(subparsers, formatter_class=formatter_class)
 
     togxf.get_subparser_togff(subparsers, formatter_class=formatter_class)
     togxf.get_subparser_togtf(subparsers, formatter_class=formatter_class)

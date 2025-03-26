@@ -386,3 +386,17 @@ def split_by_strand(features: list[SeqFeature]):
             d[strand] = []
         d[strand].append(feature)
     return d
+
+
+def copy_feature(feature: SeqFeature):
+    """
+    Return a copy of a SeqFeature.
+    The qualifier dict of the new feature is a shallow copy of the original.
+    """
+    new = SeqFeature()
+    new.location = feature.location
+    new.type = feature.type
+    new.id = feature.id
+    # shallow copy of qualifier dict
+    new.qualifiers = {k: v for k, v in feature.qualifiers.items()}
+    return new
