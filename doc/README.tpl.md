@@ -16,6 +16,7 @@ Supported commands are:
 * **modify**: padding, add/remove features, set qualifiers and annotation
 * **splice**: carve out exon sequences and their overlapping features
 * **togff/togtf**: leverage `geneify`'s hierarchization and export features to G(T/F)F
+* **tofasta**: convert sequences to FASTA format
 
 Its intended use case is to handle Genbank files storing reference information for specific genes of interest or plasmid annotations.
 These potentially require occasional updates and are often not directly amenable to downstream tools which rely on GTF/GFF annotation.

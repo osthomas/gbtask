@@ -4,6 +4,7 @@ from gbtask import __version__
 from gbtask.geneify import cli as geneify
 from gbtask.modify import cli as modify
 from gbtask.splice import cli as splice
+from gbtask.tofasta import cli as tofasta
 from gbtask.togxf import cli as togxf
 
 
@@ -32,5 +33,7 @@ def parse_args():
 
     togxf.get_subparser_togff(subparsers, formatter_class=formatter_class)
     togxf.get_subparser_togtf(subparsers, formatter_class=formatter_class)
+
+    tofasta.get_subparser_tofasta(subparsers, formatter_class=formatter_class)
 
     return parser.parse_args()
