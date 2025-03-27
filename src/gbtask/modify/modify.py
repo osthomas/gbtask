@@ -52,13 +52,21 @@ def included(feature: SeqFeature, include: list[str], exclude: list[str]):
     False
     >>> included(SeqFeature(type = "exon"), include = ["exon"], exclude = ["exon"])
     True
+
+    Types are not case sensitive:
+    >>> included(SeqFeature(type = "Cds"), include = ["cdS"], exclude = [])
+    True
     """
+    # do not check type names with case sensitivity
+    include = [i.lower() for i in include]
+    exclude = [e.lower() for e in exclude]
+    ftype = feature.type.lower()
     if not include and not exclude:
         # include everything
         return True
-    if include and feature.type in include:
+    if include and ftype in include:
         return True
-    if exclude and feature.type not in exclude:
+    if exclude and ftype not in exclude:
         return True
     return False
 
@@ -100,6 +108,7 @@ def set_qualifiers(record: SeqRecord, qualifier_spec: list[tuple[str, str, str]]
         `t[2]` gives the values the qualifier is set to.
     """
     for ftype, k, v in qualifier_spec:
+        ftype = ftype.lower()  # not case sensitive
         for feature in record.features:
             # check feature type without case sensitivity
             ftype_have = feature.type.lower() if feature.type else None
