@@ -1,5 +1,6 @@
 import argparse
 
+from gbtask import __version__
 from gbtask.geneify import cli as geneify
 from gbtask.modify import cli as modify
 from gbtask.splice import cli as splice
@@ -16,7 +17,13 @@ def parse_args():
         default=0,
         help="Increase log level. Can be repeated.",
     )
-    parser.add_argument("--version", action="count", help="Print version and exit")
+    parser.add_argument(
+        "-V",
+        "--version",
+        action="version",
+        version="%(prog)s {version}".format(version=__version__),
+        help="Print version and exit",
+    )
     subparsers = parser.add_subparsers(title="Commands", required=True)
 
     geneify.get_subparser(subparsers, formatter_class=formatter_class)
