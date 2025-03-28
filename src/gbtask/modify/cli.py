@@ -1,7 +1,7 @@
 import argparse
-import sys
 
 from Bio import SeqIO
+
 from gbtask.modify.modify import modify
 
 
@@ -11,20 +11,6 @@ def get_subparser(subparsers, *args, **kwargs) -> None:
         help="Perform simple modifications on a genbank file",
         *args,
         **kwargs,
-    )
-    parser.add_argument(
-        "-i",
-        "--infile",
-        help="Input file",
-        type=argparse.FileType("r"),
-        default=sys.stdin,
-    )
-    parser.add_argument(
-        "-o",
-        "--outfile",
-        help="Output file",
-        type=argparse.FileType("w"),
-        default=sys.stdout,
     )
 
     parser.add_argument(

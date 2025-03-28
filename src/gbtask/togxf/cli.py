@@ -1,5 +1,4 @@
 import argparse
-import sys
 
 from Bio import SeqIO
 
@@ -13,20 +12,6 @@ def get_subparser_togff(subparsers, *args, **kwargs) -> None:
         *args,
         **kwargs,
     )
-    parser.add_argument(
-        "-i",
-        "--infile",
-        help="Input file",
-        type=argparse.FileType("r"),
-        default=sys.stdin,
-    )
-    parser.add_argument(
-        "-o",
-        "--outfile",
-        help="Output file",
-        type=argparse.FileType("w"),
-        default=sys.stdout,
-    )
 
     parser.set_defaults(func=togff)
 
@@ -37,20 +22,6 @@ def get_subparser_togtf(subparsers, *args, **kwargs) -> None:
         help="Convert genbank to gtf. Requires proper qualifiers to be set, run through 'geneify' first!",
         *args,
         **kwargs,
-    )
-    parser.add_argument(
-        "-i",
-        "--infile",
-        help="Input file",
-        type=argparse.FileType("r"),
-        default=sys.stdin,
-    )
-    parser.add_argument(
-        "-o",
-        "--outfile",
-        help="Output file",
-        type=argparse.FileType("w"),
-        default=sys.stdout,
     )
 
     parser.set_defaults(func=togtf)
