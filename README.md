@@ -336,26 +336,23 @@ usage: gbtask geneify [-h] [-i INFILE] [-o OUTFILE] [--groupby [GROUPBY ...]]
 
 options:
   -h, --help            show this help message and exit
-  -i, --infile INFILE   Input file (default: <_io.TextIOWrapper name='<stdin>'
-                        mode='r' encoding='utf-8'>)
+  -i, --infile INFILE   Input file (default: stdin)
   -o, --outfile OUTFILE
-                        Output file (default: <_io.TextIOWrapper
-                        name='<stdout>' mode='w' encoding='utf-8'>)
+                        Output file (default: stdout)
   --groupby [GROUPBY ...]
-                        Names of qualifiers for first-level grouping of
-                        features (default: ['gene'])
+                        Names of qualifiers for first-level grouping of features
+                        (default: ['gene'])
   --groupby-overlap, --no-groupby-overlap
-                        Group features by overlap after grouping by
-                        qualifiers? Warning, this may lead to undesirable
-                        separation of features if there is no scaffolding
-                        super-feature that covers all sub-features. (default:
-                        False)
+                        Group features by overlap after grouping by qualifiers?
+                        Warning, this may lead to undesirable separation of
+                        features if there is no scaffolding super-feature that
+                        covers all sub-features. (default: False)
   --infer-exons, --no-infer-exons
-                        Infer mRNA/exon features per feature group, depending
-                        on what is available (default: True)
+                        Infer mRNA/exon features per feature group, depending on
+                        what is available (default: True)
   --infer-utrs, --no-infer-utrs
-                        Infer UTR features per feature group based on exons
-                        and CDS (default: True)
+                        Infer UTR features per feature group based on exons and
+                        CDS (default: True)
 ```
 
 
@@ -371,27 +368,24 @@ usage: gbtask modify [-h] [-i INFILE] [-o OUTFILE] [-a key value]
 
 options:
   -h, --help            show this help message and exit
-  -i, --infile INFILE   Input file (default: <_io.TextIOWrapper name='<stdin>'
-                        mode='r' encoding='utf-8'>)
+  -i, --infile INFILE   Input file (default: stdin)
   -o, --outfile OUTFILE
-                        Output file (default: <_io.TextIOWrapper
-                        name='<stdout>' mode='w' encoding='utf-8'>)
+                        Output file (default: stdout)
   -a, --annotation key value
-                        Set annotation 'key' to 'value' for all records. Can
-                        be given multiple times. Example: -a organism 'mus
+                        Set annotation 'key' to 'value' for all records. Can be
+                        given multiple times. Example: -a organism 'mus
                         musculus' (default: [])
   -q, --qualifier type key value
-                        For all features of type 'type', set qualifier 'key'
-                        to 'value'. Can be given multiple times. The special
-                        value 'all' for 'type' can be given to affect all
+                        For all features of type 'type', set qualifier 'key' to
+                        'value'. Can be given multiple times. The special value
+                        'all' for 'type' can be given to affect all
                         features.Example: -q all locus_tag geneA (default: [])
   -f, --feature start end strand type
                         Add a new feature. Can be given multiple times. NOTE:
                         Locations 'start' and 'end' are 0-based and end-
-                        exclusive! If they start with '-', counting begins
-                        from the end of the sequence. '0' refers to the first,
-                        '-0' refers to the last base of the record. (default:
-                        [])
+                        exclusive! If they start with '-', counting begins from
+                        the end of the sequence. '0' refers to the first, '-0'
+                        refers to the last base of the record. (default: [])
 
 Include/Exclude Features:
   Feature types to include or exclude. Only --include or --exclude can be
@@ -404,12 +398,12 @@ Include/Exclude Features:
                         [])
 
 Padding:
-  --pad-left PAD_LEFT   Pad sequence to the left. This can either be a number
-                        to add this many 'N' characters, or a string to pad
-                        with a specific sequence. (default: None)
+  --pad-left PAD_LEFT   Pad sequence to the left. This can either be a number to
+                        add this many 'N' characters, or a string to pad with a
+                        specific sequence. (default: None)
   --pad-right PAD_RIGHT
-                        Like --pad-left, but for the right side of the
-                        sequence. (default: None)
+                        Like --pad-left, but for the right side of the sequence.
+                        (default: None)
 ```
 
 
@@ -425,13 +419,10 @@ usage: gbtask splice [-h] [-i INFILE] [-o OUTFILE] [-e EXON]
 
 options:
   -h, --help            show this help message and exit
-  -i, --infile INFILE   Input file (default: <_io.TextIOWrapper name='<stdin>'
-                        mode='r' encoding='utf-8'>)
+  -i, --infile INFILE   Input file (default: stdin)
   -o, --outfile OUTFILE
-                        Output file (default: <_io.TextIOWrapper
-                        name='<stdout>' mode='w' encoding='utf-8'>)
-  -e, --exon EXON       Name of feature type to consider as exon (default:
-                        exon)
+                        Output file (default: stdout)
+  -e, --exon EXON       Name of feature type to consider as exon (default: exon)
 ```
 
 ## togtf
@@ -444,11 +435,9 @@ usage: gbtask togtf [-h] [-i INFILE] [-o OUTFILE]
 
 options:
   -h, --help            show this help message and exit
-  -i, --infile INFILE   Input file (default: <_io.TextIOWrapper name='<stdin>'
-                        mode='r' encoding='utf-8'>)
+  -i, --infile INFILE   Input file (default: stdin)
   -o, --outfile OUTFILE
-                        Output file (default: <_io.TextIOWrapper
-                        name='<stdout>' mode='w' encoding='utf-8'>)
+                        Output file (default: stdout)
 ```
 
 
@@ -463,9 +452,7 @@ usage: gbtask togff [-h] [-i INFILE] [-o OUTFILE]
 
 options:
   -h, --help            show this help message and exit
-  -i, --infile INFILE   Input file (default: <_io.TextIOWrapper name='<stdin>'
-                        mode='r' encoding='utf-8'>)
+  -i, --infile INFILE   Input file (default: stdin)
   -o, --outfile OUTFILE
-                        Output file (default: <_io.TextIOWrapper
-                        name='<stdout>' mode='w' encoding='utf-8'>)
+                        Output file (default: stdout)
 ```
