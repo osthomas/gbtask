@@ -9,9 +9,9 @@ for rna in ("mRNA", "tRNA", "snRNA", "snoRNA", "lncRNA", "ncRNA"):
 _hierarchy.add_node("exon")
 _hierarchy.add_node("CDS")
 _hierarchy.add_edge("mRNA", "CDS")
-_hierarchy.add_node("5'UTR", alias={"gff": "five_prime_utr", "gtf": "UTR"})
+_hierarchy.add_node("5'UTR", alias={"gff": "five_prime_UTR", "gtf": "UTR"})
 _hierarchy.add_edge("mRNA", "5'UTR")
-_hierarchy.add_node("3'UTR", alias={"gff": "three_prime_utr", "gtf": "UTR"})
+_hierarchy.add_node("3'UTR", alias={"gff": "three_prime_UTR", "gtf": "UTR"})
 _hierarchy.add_edge("mRNA", "3'UTR")
 
 

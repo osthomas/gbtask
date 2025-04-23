@@ -214,10 +214,10 @@ example	gbtask_togff	exon	191	200	.	+	.	ID=gene.01:exon.03;Parent=gene.01:mRNA.0
 example	gbtask_togff	exon	11	20	.	+	.	ID=gene.01:exon.01;Parent=gene.01:mRNA.01;mygroupingqualifier=mygene;transcript_id=gene.01:mRNA.01;gene_id=gene.01
 example	gbtask_togff	CDS	12	19	.	+	0	ID=gene.01:CDS.01;Parent=gene.01:mRNA.01;mygroupingqualifier=mygene;transcript_id=gene.01:mRNA.01;gene_id=gene.01
 example	gbtask_togff	mRNA	11	200	.	+	.	ID=gene.01:mRNA.01;Parent=gene.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
-example	gbtask_togff	five_prime_utr	11	11	.	+	.	ID=gene.01:5'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
-example	gbtask_togff	three_prime_utr	20	20	.	+	.	ID=gene.01:3'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
-example	gbtask_togff	three_prime_utr	101	110	.	+	.	ID=gene.01:3'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
-example	gbtask_togff	three_prime_utr	191	200	.	+	.	ID=gene.01:3'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
+example	gbtask_togff	five_prime_UTR	11	11	.	+	.	ID=gene.01:5'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
+example	gbtask_togff	three_prime_UTR	20	20	.	+	.	ID=gene.01:3'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
+example	gbtask_togff	three_prime_UTR	101	110	.	+	.	ID=gene.01:3'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
+example	gbtask_togff	three_prime_UTR	191	200	.	+	.	ID=gene.01:3'UTR.01;Parent=gene.01:mRNA.01;transcript_id=gene.01:mRNA.01;gene_id=gene.01
 example	gbtask_togff	gene	11	200	.	+	.	ID=gene.01;gene_id=gene.01
 ```
 

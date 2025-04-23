@@ -1,4 +1,5 @@
 import pytest
+
 from gbtask.utils.TypeTree import TypeTree
 
 
@@ -12,13 +13,13 @@ def test_root_type(tree):
 
 
 def test_alias(tree):
-    assert tree.alias("3'UTR", "gff") == "three_prime_utr"
+    assert tree.alias("3'UTR", "gff") == "three_prime_UTR"
     assert tree.alias("3'UTR", "nonexistent") == "3'UTR"
 
 
 def test_relabel_gff(tree):
     want_orig = ("5'UTR", "3'UTR")
-    want_new = ("five_prime_utr", "three_prime_utr")
+    want_new = ("five_prime_UTR", "three_prime_UTR")
     for wo, wn in zip(want_orig, want_new):
         assert wo in tree._tree.nodes
         assert wn not in tree._tree.nodes
@@ -33,7 +34,7 @@ def test_relabel_gff(tree):
 
 
 def test_relabel_prevent_duplicates(tree):
-    tree._tree.nodes["exon"]["alias"] = {"gff": "three_prime_utr"}
+    tree._tree.nodes["exon"]["alias"] = {"gff": "three_prime_UTR"}
     with pytest.raises(NotImplementedError, match="not unique"):
         tree.relabel("gff")
 

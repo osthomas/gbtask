@@ -2,6 +2,7 @@ import pytest
 from Bio.Seq import Seq
 from Bio.SeqFeature import CompoundLocation, SeqFeature, SimpleLocation
 from Bio.SeqRecord import SeqRecord
+
 from gbtask.togxf.GXFConverter import GFFConverter, GTFConverter, GXFConverter
 
 
@@ -80,7 +81,7 @@ class TestGXFConverter:
 
 class TestGFFConverter:
     def test_convert_type(self, gffconv):
-        assert gffconv.convert_type("3'UTR") == "three_prime_utr"
+        assert gffconv.convert_type("3'UTR") == "three_prime_UTR"
         assert gffconv.convert_type("mRNA") == "mRNA"
 
     def test_fails_without_id(self, gffconv):
