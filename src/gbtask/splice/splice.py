@@ -21,10 +21,12 @@ def splice(record: SeqRecord, exon_types: list[str]):
     # ----------
     # ^^^^^^^^^^
     #   exon3
-    exons = [f for f in record.features if f.type in exon_types]
+    # ensure determination of exon types is case insensitive
+    is_exon = lambda feature: feature.type.lower() in [x.lower() for x in exon_types]
+    exons = [f for f in record.features if is_exon(f)]
     intervals = []
     for feature in record.features:
-        if feature.type not in exon_types or not feature.location:
+        if not is_exon(feature) or not feature.location:
             continue
         intervals.append((feature.location.start, feature.location.end))
     intervals = futils.reduce_intervals(intervals)
@@ -36,8 +38,8 @@ def splice(record: SeqRecord, exon_types: list[str]):
     # Truncate features to the range of the exon slices. This ensures that they
     # will be retained when the SeqRecord is sliced.
     truncated_features = []
-    exons = [f for f in record.features if f.type in exon_types]
-    not_exons = [f for f in record.features if f.type not in exon_types]
+    exons = [f for f in record.features if is_exon(f)]
+    not_exons = [f for f in record.features if not is_exon(f)]
     for exon_span in exon_spans:
         for feature in not_exons:
             to_add = _truncate(feature, to=exon_span)

@@ -1,0 +1,29 @@
+LOCUS       TESTCASE                  67 bp    DNA              UNK 01-JAN-1980
+DEFINITION  natural linear DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     5'UTR           1..25
+                     /label="5UTR"
+     CDS             26..40
+                     /codon_start=1
+                     /label="CDS1"
+                     /translation="CICMH"
+     CDS             41..51
+                     /codon_start=1
+                     /label="CDS2"
+                     /translation="YAC"
+     CDS             47..57
+                     /codon_start=1
+                     /label="overlapping_CDS2"
+                     /translation="CIC"
+     3'UTR           58..67
+                     /label="3UTR"
+ORIGIN
+        1 atgcatgcat atgcatgcat atgcatgcat atgcatgcat tatgcatgca tatgcatatg
+       61 catgcat
+//

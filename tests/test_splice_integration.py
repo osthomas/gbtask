@@ -30,10 +30,13 @@ def splice_run(args, infile):
 @pytest.mark.parametrize(
     ("args", "infile", "expect_outfile"),
     [
-        # Test several options of modify.
         (
             [],
             *case_io_splice("test01"),
+        ),
+        (
+            ["--exon", "5'utr,CdS,3'UTR"],  # multiple exon types, case-insensitive
+            *case_io_splice("test02"),
         ),
     ],
 )
