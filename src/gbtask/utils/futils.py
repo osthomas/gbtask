@@ -263,7 +263,8 @@ def covered_intervals(features: list[SeqFeature]) -> list[SimpleLocation]:
 
 def reduce_intervals(intervals: list[tuple[int, int]]):
     """
-    Reduce adjacent contiguous *right-open* intervals to one bigger interval.
+    Reduce adjacent or overlapping contiguous *right-open* intervals to one
+    bigger interval.
 
     Return
     ------
@@ -301,11 +302,18 @@ def reduce_intervals(intervals: list[tuple[int, int]]):
 
     >>> reduce_intervals([])
     []
+
+    Intervals are sorted first:
+
+    >>> reduce_intervals([(0, 3), (10, 20), (3, 10)])
+    [(0, 20)]
     """
     if not intervals:
         return []
     # Sort by start position
     intervals = sorted(intervals, key=lambda x: x[0])
+    # and by end position
+    intervals = sorted(intervals, key=lambda x: x[1])
     new = []
     # Fetch one interval
     i1 = intervals.pop(0)
