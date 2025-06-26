@@ -4,7 +4,7 @@ from Bio.SeqRecord import SeqRecord
 from gbtask.utils import futils
 
 
-def splice(record: SeqRecord, exon: str):
+def splice(record: SeqRecord, exon_types: list[str]):
     # "Splicing" is done by concatening slices of the SeqRecord that correspond
     # to contiguous regions covered by exon features.
     # To properly handle all features, we need to do a bit more work:
@@ -21,10 +21,10 @@ def splice(record: SeqRecord, exon: str):
     # ----------
     # ^^^^^^^^^^
     #   exon3
-    exons = [f for f in record.features if f.type == exon]
+    exons = [f for f in record.features if f.type in exon_types]
     intervals = []
     for feature in record.features:
-        if feature.type != exon or not feature.location:
+        if feature.type not in exon_types or not feature.location:
             continue
         intervals.append((feature.location.start, feature.location.end))
     intervals = futils.reduce_intervals(intervals)
@@ -36,8 +36,8 @@ def splice(record: SeqRecord, exon: str):
     # Truncate features to the range of the exon slices. This ensures that they
     # will be retained when the SeqRecord is sliced.
     truncated_features = []
-    exons = [f for f in record.features if f.type == exon]
-    not_exons = [f for f in record.features if f.type != exon]
+    exons = [f for f in record.features if f.type in exon_types]
+    not_exons = [f for f in record.features if f.type not in exon_types]
     for exon_span in exon_spans:
         for feature in not_exons:
             to_add = _truncate(feature, to=exon_span)

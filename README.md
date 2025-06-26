@@ -428,7 +428,9 @@ options:
   -i, --infile INFILE   Input file (default: stdin)
   -o, --outfile OUTFILE
                         Output file (default: stdout)
-  -e, --exon EXON       Name of feature type to consider as exon (default: exon)
+  -e, --exon EXON       Comma-separated list of feature types to consider as
+                        exonic. Example: --exon "CDS,3'UTR,5'UTR" (default:
+                        exon)
 ```
 
 ## togtf

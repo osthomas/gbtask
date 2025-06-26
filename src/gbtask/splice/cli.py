@@ -14,13 +14,17 @@ def get_subparser(subparsers, *args, **kwargs) -> None:
     )
 
     parser.add_argument(
-        "-e", "--exon", help="Name of feature type to consider as exon", default="exon"
+        "-e",
+        "--exon",
+        help="Comma-separated list of feature types to consider as exonic. Example: --exon \"CDS,3'UTR,5'UTR\"",
+        default="exon",
     )
 
     parser.set_defaults(func=run)
 
 
 def run(args: argparse.Namespace):
+    args.exon = args.exon.split(",")
     for record in SeqIO.parse(args.infile, "genbank"):
         spliced = splice.splice(record, args.exon)
         SeqIO.write(spliced, args.outfile, "genbank")

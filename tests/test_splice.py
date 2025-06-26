@@ -57,14 +57,14 @@ def test_truncate_exceeds_both():
 
 
 def test_splice_0exons(record):
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     assert spliced.seq == ""
 
 
 def test_splice_1exon(record):
     exon = SeqFeature(sl(0, 2), type="exon")
     record.features.append(exon)
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     assert spliced.seq == "AA"
     assert spliced.features == [exon]
 
@@ -73,7 +73,7 @@ def test_splice_2exons(record):
     exon1 = SeqFeature(sl(0, 2), type="exon")
     exon2 = SeqFeature(sl(4, 6), type="exon")
     record.features = [exon1, exon2]
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     exon2_aftersplice = SeqFeature(sl(2, 4), type="exon")
     assert spliced.seq == "AAGG"
     assert spliced.features == [exon1, exon2_aftersplice]
@@ -83,7 +83,7 @@ def test_splice_2exons_adjacent(record):
     exon1 = SeqFeature(sl(0, 2), type="exon")
     exon2 = SeqFeature(sl(2, 4), type="exon")
     record.features = [exon1, exon2]
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     assert spliced.seq == "AATT"
     assert spliced.features == [exon1, exon2]
 
@@ -92,7 +92,16 @@ def test_splice_2exons_overlapping(record):
     exon1 = SeqFeature(sl(0, 2), type="exon")
     exon2 = SeqFeature(sl(1, 3), type="exon")
     record.features = [exon1, exon2]
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
+    assert spliced.seq == "AAT"
+    assert spliced.features == [exon1, exon2]
+
+
+def test_splice_2exon_different_types(record):
+    exon1 = SeqFeature(sl(0, 2), type="exontype1")
+    exon2 = SeqFeature(sl(1, 3), type="exontype2")
+    record.features = [exon1, exon2]
+    spliced = splice(record, ["exontype1", "exontype2"])
     assert spliced.seq == "AAT"
     assert spliced.features == [exon1, exon2]
 
@@ -101,7 +110,7 @@ def test_splice_keeps_covered_simplefeatures(record):
     exon = SeqFeature(sl(0, 5), type="exon")
     other = SeqFeature(sl(3, 5), type="other")
     record.features = [exon, other]
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     other_aftersplice = SeqFeature(sl(3, 5), type="other")
     assert spliced.features == [exon, other_aftersplice]
 
@@ -111,7 +120,7 @@ def test_splice_keeps_covered_compoundfeatures(record):
     exon2 = SeqFeature(sl(7, 9), type="exon")
     other = SeqFeature(cl([sl(3, 5), sl(7, 9)]), type="other")
     record.features = [exon1, exon2, other]
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     exon2_aftersplice = SeqFeature(sl(5, 7), type="exon")
     other_aftersplice1 = SeqFeature(sl(3, 5), type="other")
     other_aftersplice2 = SeqFeature(sl(5, 7), type="other")
@@ -128,7 +137,7 @@ def test_splice_truncates_and_splits_features(record):
     exon2 = SeqFeature(sl(7, 10), type="exon")
     other = SeqFeature(sl(0, 12), type="other")
     record.features = [exon1, exon2, other]
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     exon2_aftersplice = SeqFeature(sl(5, 8), type="exon")
     other_aftersplice1 = SeqFeature(sl(0, 5), type="other")
     other_aftersplice2 = SeqFeature(sl(5, 8), type="other")
@@ -145,7 +154,7 @@ def test_splice_truncates_and_splits_features_with_partial_overlap(record):
     exon2 = SeqFeature(sl(7, 10), type="exon")
     other = SeqFeature(sl(2, 8), type="other")
     record.features = [exon1, exon2, other]
-    spliced = splice(record, "exon")
+    spliced = splice(record, ["exon"])
     exon2_aftersplice = SeqFeature(sl(5, 8), type="exon")
     other_aftersplice1 = SeqFeature(sl(2, 5), type="other")
     other_aftersplice2 = SeqFeature(sl(5, 6), type="other")
