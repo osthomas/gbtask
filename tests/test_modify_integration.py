@@ -75,6 +75,24 @@ def modify_run(args, infile):
             ],
             *case_io("test04"),
         ),
+        # test --expand
+        (
+            [
+                "--expand",
+                "CDS",
+                "10",  # compound CDS with 3 parts fused into 2
+                "--expand",
+                "exon",
+                "-10",
+                "--expand",
+                "misc_feature",
+                "-100",  # feature removed entirely
+                "--expand",
+                "intron",
+                "-10",  # part of compound feature removed
+            ],
+            *case_io("test05"),
+        ),
     ],
 )
 def test_modify_integration(args, infile, expect_outfile):

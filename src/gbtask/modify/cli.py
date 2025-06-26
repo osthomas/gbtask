@@ -51,6 +51,17 @@ def get_subparser(subparsers, *args, **kwargs) -> None:
         "'0' refers to the first, '-0' refers to the last base of the record.",
     )
 
+    parser.add_argument(
+        "--expand",
+        action="append",
+        metavar=("type", "amount"),
+        nargs=2,
+        default=[],
+        help="Expand features of 'type' by 'amount' bases on both sides. "
+        "If 'amount' is negative, features are shrunk instead. "
+        "Features and parts of features that are shrunk to a width <= 0 are deleted from the output. ",
+    )
+
     grp_inex_ = parser.add_argument_group(
         "Include/Exclude Features",
         description="Feature types to include or exclude. "
@@ -90,5 +101,6 @@ def run(args: argparse.Namespace):
             features=args.feature,
             annotations=args.annotation,
             qualifiers=args.qualifier,
+            expansions=args.expand,
         )
         SeqIO.write(modified, args.outfile, "genbank")

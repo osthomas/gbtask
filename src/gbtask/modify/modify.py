@@ -1,6 +1,8 @@
 from Bio.Seq import Seq
-from Bio.SeqFeature import SeqFeature, SimpleLocation
+from Bio.SeqFeature import CompoundLocation, SeqFeature, SimpleLocation
 from Bio.SeqRecord import SeqRecord
+
+from gbtask.utils.futils import reduce_intervals
 
 
 def modify(
@@ -12,6 +14,7 @@ def modify(
     features: list[tuple[str, str, str, str]],
     annotations: list[tuple[str, str]],
     qualifiers: list[tuple[str, str, str]],
+    expansions: list[tuple[str, str]],
 ):
     if pad_left:
         record = pad2seq(pad_left) + record
@@ -24,6 +27,8 @@ def modify(
         set_annotations(record, annotations)
     if qualifiers:
         set_qualifiers(record, qualifiers)
+    if expansions:
+        expand_features(record, expansions)
     return record
 
 
@@ -120,6 +125,60 @@ def set_qualifiers(record: SeqRecord, qualifier_spec: list[tuple[str, str, str]]
 def add_features(record: SeqRecord, feature_specs: list[tuple[str, str, str, str]]):
     for feature_spec in feature_specs:
         record.features.append(add_feature(record, feature_spec))
+
+
+def expand_features(record: SeqRecord, expand_specs: list[tuple[str, str]]):
+    """
+    Modify locations for features in record in place.
+
+    Parameters
+    ----------
+    record
+        SeqRecord whose features are modified.
+    expand_specs
+        A list of tuples.
+        Each tuple `t` has 2 string elements.
+        `t[0]` specifies the feature type to affect. If this is 'all', all
+        feature types are affected.
+        `t[1]` gives the number of bases to expand in either direction.
+    """
+    # Shrinking features by a large amount may delete them entirely. Therefore,
+    # the list of features for the record needs to be rebuilt from scratch,
+    # omitting deleted features.
+    for feature in record.features:
+        for expand_spec in expand_specs:
+            ftype, amount = expand_spec
+            amount = int(amount)  # arrives from CLI as str
+            if feature.type != ftype or feature.location is None:
+                continue
+            intervals: list[tuple[int, int]] = []
+            for part in feature.location.parts:
+                start = part.start - amount  # type: ignore
+                if start < 0:
+                    start = 0
+                end = part.end + amount  # type: ignore
+                if end > len(record):
+                    end = len(record)
+                if end >= start:
+                    intervals.append((start, end))
+            if not intervals:
+                # no parts with non-zero size are left after shrinking
+                feature.location = None
+                # mark for deletion.
+                # Do not rely on feature.location in case input features had
+                # no location to start with.
+                feature.qualifiers["__gbtask_expand_delete"] = True
+                continue
+            intervals = reduce_intervals(intervals)
+            # TODO: factor out intervals2location
+            locs = [SimpleLocation(i[0], i[1], feature.strand) for i in intervals]
+            if len(locs) > 1:
+                feature.location = CompoundLocation(locs)
+            else:
+                feature.location = locs[0]
+    record.features = [
+        f for f in record.features if not f.qualifiers.get("__gbtask_expand_delete")
+    ]
 
 
 def _featurepos_str2int(record: SeqRecord, pos: str) -> int:

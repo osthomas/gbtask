@@ -363,8 +363,9 @@ gbtask modify -h
 
 usage: gbtask modify [-h] [-i INFILE] [-o OUTFILE] [-a key value]
                      [-q type key value] [-f start end strand type]
-                     [--include [INCLUDE ...] | --exclude [EXCLUDE ...]]
-                     [--pad-left PAD_LEFT] [--pad-right PAD_RIGHT]
+                     [--expand type amount] [--include [INCLUDE ...] |
+                     --exclude [EXCLUDE ...]] [--pad-left PAD_LEFT]
+                     [--pad-right PAD_RIGHT]
 
 options:
   -h, --help            show this help message and exit
@@ -386,6 +387,11 @@ options:
                         exclusive! If they start with '-', counting begins from
                         the end of the sequence. '0' refers to the first, '-0'
                         refers to the last base of the record. (default: [])
+  --expand type amount  Expand features of 'type' by 'amount' bases on both
+                        sides. If 'amount' is negative, features are shrunk
+                        instead. Features and parts of features that are shrunk
+                        to a width <= 0 are deleted from the output. (default:
+                        [])
 
 Include/Exclude Features:
   Feature types to include or exclude. Only --include or --exclude can be
